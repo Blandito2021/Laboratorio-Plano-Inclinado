@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Luis Hernando Blandón Dávila">
+<meta name="copyright" content="© 2026 Luis Hernando Blandón Dávila. Todos los derechos reservados.">
+<!-- © 2026 Luis Hernando Blandón Dávila. Todos los derechos reservados. Prohibida su copia, modificación o distribución, total o parcial, sin autorización escrita del autor. -->
 <title>Laboratorio Virtual · Plano Inclinado · UTP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -699,11 +702,12 @@ table.data caption{caption-side:top;text-align:left;font-family:var(--f-display)
 </div>
 
 <div id="toast" hidden></div>
-<div class="footer wrap">Laboratorio virtual de Plano Inclinado · Física I · Universidad Tecnológica de Pereira. Elaborado por Luis Hernando Blandón Dávila.</div>
+<div class="footer wrap">Laboratorio virtual de Plano Inclinado · Física I · Universidad Tecnológica de Pereira. Elaborado por Luis Hernando Blandón Dávila.<br>© 2026 Luis Hernando Blandón Dávila · Todos los derechos reservados. Prohibida su copia, modificación o distribución sin autorización del autor.<br>Contenido académico basado en el cuadernillo «Práctica 6 · Plano inclinado» del Departamento de Física de la UTP.</div>
 
 <script type="text/plain" id="gasCode">
 /**
  * Puente entre el Laboratorio Virtual «Plano inclinado» (UTP) y una hoja de cálculo de Google.
+ * © 2026 Luis Hernando Blandón Dávila. Todos los derechos reservados.
  * Es un proyecto PROPIO de este laboratorio: crea su propia hoja, distinta de las de Movimiento 2D y Ley de Hooke.
  * El propio script CREA la hoja de cálculo la primera vez que se ejecuta.
  *
@@ -2111,7 +2115,7 @@ function renderReport(){
     <h3 style="font-size:14px;margin:.7rem 0 .2rem">5. Conclusiones</h3>
     <p style="font-size:12.5px;margin:.2rem 0">${rev?concl:'<i>Se completa al enviar el taller.</i>'}</p>
     ${nota}
-    <div class="sig"><div>Firma estudiante(s)</div><div>Firma docente</div></div>
+    <div class="sig"><div>Firma estudiante(s)</div><div>Firma docente</div></div><p style="font-size:10px;color:#555;text-align:center;margin:1.2rem 0 0">Laboratorio virtual © 2026 Luis Hernando Blandón Dávila · Universidad Tecnológica de Pereira · Todos los derechos reservados.</p>
   </div>`;
 }
 $('#btnPrint').onclick=()=>window.print();
@@ -2484,7 +2488,7 @@ function tutRender(){ const cvs=$('#tutCanvas'), c=cvs.getContext('2d'); const L
   c.setTransform(1,0,0,1,0,0); c.fillStyle=TC.bg; c.fillRect(0,0,cvs.width,cvs.height); c.setTransform(TUT.dpr*TUT.k,0,0,TUT.dpr*TUT.k,TUT.dpr*TUT.ox,TUT.dpr*TUT.oy);
   c.strokeStyle=TC.grid; c.lineWidth=1; c.beginPath(); for(let x=0;x<=1280;x+=40){ c.moveTo(x,0); c.lineTo(x,720);} for(let y=0;y<=720;y+=40){ c.moveTo(0,y); c.lineTo(1280,y);} c.stroke();
   const u=L.lt/L.sc.dur; c.save(); const fade=Math.min(1,L.lt/0.35,(L.sc.dur-L.lt)/0.35); c.globalAlpha=Math.max(0,fade); try{ L.sc.draw(c,u,L.lt,L.sc); }catch(e){ console.error(e); } c.restore();
-  tTxt(c,`${L.i+1}/${TUT.scenes.length} · ${L.sc.ch}`,1240,690,{align:'right',size:16,color:TC.mut,w:500}); tTxt(c,'UTP · Física I',40,690,{size:16,color:TC.mut,w:500});
+  tTxt(c,`${L.i+1}/${TUT.scenes.length} · ${L.sc.ch}`,1240,690,{align:'right',size:16,color:TC.mut,w:500}); tTxt(c,'UTP · Física I · © 2026 L. H. Blandón D.',40,690,{size:16,color:TC.mut,w:500});
   const key=L.i+':'+L.bi; if(key!==TUT.key){ TUT.key=key; const b=L.sc.beats[L.bi]; $('#tutCC').textContent=(TUT.cc&&b)?b.t:''; if(TUT.playing&&TUT.voice&&b){ tutSpeak(b.t); TUT.spoken=key; } }
   if(!TUT.cc) $('#tutCC').textContent='';
   const fmtT=s=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`; $('#tutTime').textContent=`${fmtT(TUT.t)} / ${fmtT(TUT.total)}`; $('#tutFill').style.width=(100*TUT.t/TUT.total)+'%';
