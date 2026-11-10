@@ -495,7 +495,7 @@ table.data caption{caption-side:top;text-align:left;font-family:var(--f-display)
       <div class="panel-title"><i data-lucide="list-checks"></i>Procedimiento (guía de la práctica)</div>
       <ol class="steps">
         <li>Con el carril <b>horizontal</b>, mida el ancho de la bandera con el <b>pie de rey</b>, la longitud total del carril <b>d</b> y la altura <b>h₀</b> entre el borde de la mesa y el carril (Tabla 1).</li>
-        <li>Al ancho medido réstele <b>0,0024 m</b> por la construcción del fotosensor: ese valor corregido es la <b>L</b> de los cálculos.</li>
+        <li>Al ancho medido réstele <b>0,0024 m</b> por la construcción del fotosensor: ese valor corregido es la <b>L</b> de los cálculos. <i>En el laboratorio anote el ancho tal como lo mide; la resta la hace usted en la pestaña <b>6 · Taller Evaluativo</b>, sección <b>B · Cálculos</b>, pregunta 1, que aparece cuando complete las Tablas 2 y 3.</i></li>
         <li>Coloque un bloque de aluminio bajo un extremo. Mida la distancia <b>D</b> entre las fotoceldas y la altura <b>h<sub>f</sub></b> del carril inclinado.</li>
         <li>Pese el carro <b>con la bandera puesta</b> y anote su masa m¹ en la Tabla 2.</li>
         <li>Suéltelo desde la parte más alta, <b>sin empujarlo</b>, y anote los tiempos t¹ y t² que tarda la bandera en cruzar cada fotocelda.</li>
@@ -1721,6 +1721,7 @@ function renderData(){
       <tr><td style="text-align:left">d · longitud del carril</td><td class="mono">${gin('d',Gm.d,3)}</td><td>m</td><td>cinta métrica (1 mm)</td></tr>
       <tr><td style="text-align:left">h₀ · altura con el carril horizontal</td><td class="mono">${gin('h0',Gm.h0,4)}</td><td>m</td><td>regla (0,5 mm)</td></tr>
       <tr><td style="text-align:left">D · separación de las fotoceldas</td><td class="mono">${gin('D',Gm.D,3)}</td><td>m</td><td>cinta métrica (1 mm)</td></tr></tbody></table></div>`;
+    if(!rev) h+=`<p class="muted" style="font-size:.84rem;margin:-.4rem 0 .9rem">ⓘ El ancho de la bandera se anota <b>tal como lo midió</b>. La corrección L = L<sub>medido</sub> − 0,0024 m la hace usted en la pestaña <b>6 · Taller Evaluativo</b>, sección <b>B · Cálculos</b>, pregunta 1 (aparece cuando complete las Tablas 2 y 3).</p>`;
     [0,1].forEach(k=>{ const I_=INC[k];
       h+=`<div class="spr-h"><span class="dot" style="background:${I_.col}"></span><h3>Tabla ${I_.tabla} · ${I_.name} (${I_.short})</h3></div>
         <p style="margin:.1rem 0 .3rem;font-size:.9rem">h<sub>f</sub> = <b class="mono">${gin('hf'+k,Gm.hf[k],4)}</b> m${rev&&Gm.sin[k]!=null?` &nbsp;·&nbsp; sen θ = <b class="mono">${nf(Gm.sin[k],5)}</b> &nbsp;·&nbsp; θ = <b class="mono">${nf(Gm.deg[k],3)}°</b>`:''}</p><div class="mini-grid">`;
